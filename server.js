@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(logger("combined"));
 
 // Static
-app.use(express.static(path.join(__dirname, "client")));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // Routes
 const routes = require("./routes");
