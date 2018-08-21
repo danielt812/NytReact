@@ -7,7 +7,7 @@ import { Container, Row, Col } from "../../components/Grid";
 import { Panel, PanelHeading, PanelBody } from "../../components/Panel";
 import { Form, Input, FormBtn, FormGroup, Label } from "../../components/Form";
 
-export default class Article extends Component {
+export default class Articles extends Component {
     // Default State
     state = {
         topic: "",
@@ -61,7 +61,7 @@ export default class Article extends Component {
             }
             let { topic, startYear, endYear } = query
             let queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?sort=newest&page=${this.state.page}`
-            let key = `8925e30c86c74a4e8082909b87e21289`
+            let nytKey = `&api-key=8925e30c86c74a4e8082909b87e21289`
 
             //Use regex to remove spaces to build query url
             if(topic.indexOf(' ')>=0) {
@@ -76,8 +76,8 @@ export default class Article extends Component {
             if(endYear) {
                 queryUrl += `&end_date=${endYear}`
             }
-            queryUrl += key;
-
+            queryUrl += nytKey;
+            console.log(queryUrl)
             API
                 .queryNYT(queryUrl)
                 .then(results => {
@@ -132,7 +132,7 @@ export default class Article extends Component {
                                     <FormGroup>
                                         <Label htmlFor="startYear">Enter a beginning date to search for:</Label>
                                         <Input
-                                            onchange={this.handleInputChange}
+                                            onChange={this.handleInputChange}
                                             type="date"
                                             name="startYear"
                                             value={this.state.startYear}
