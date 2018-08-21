@@ -1,0 +1,20 @@
+{
+  "name": "NytReact",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:danielt812/NytReact.git",
+  "author": "Daniel Tolan <danielt812@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.9",
+    "morgan": "^1.9.0",
+    "react-router-dom": "^4.3.1"
+  }
+}
