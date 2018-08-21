@@ -14,7 +14,9 @@ app.use(bodyParser.json());
 app.use(logger("combined"));
 
 // Static
-app.use(express.static(path.join(__dirname, "client/build")));
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
 
 // Routes
 const routes = require("./routes");
